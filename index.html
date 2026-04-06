@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportFlow AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ReportFlow AI</h1>
+        <form method="POST">
+            <textarea name="conteudo" placeholder="Cole os dados do relatório aqui..."></textarea>
+            <button type="submit">Gerar Relatório</button>
+        </form>
+
+        {% if relatorio %}
+        <div class="card">
+            <h2>Relatório Gerado</h2>
+            <p><strong>Palavras:</strong> {{ relatorio.palavras }}</p>
+            <p><strong>Linhas:</strong> {{ relatorio.linhas }}</p>
+            <p><strong>Resumo:</strong> {{ relatorio.resumo }}</p>
+            <p><strong>Insight IA:</strong> {{ relatorio.insight }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
